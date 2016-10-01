@@ -1,5 +1,8 @@
 package main;
 
+import handler.Ball;
+import handler.Basket;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,14 +12,20 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args)
     {
-        Scanner sc = new Scanner(System.in);
-        double x = sc.nextInt();
-        double y = sc.nextInt();
-        ArrayList ballsList = new ArrayList();
-        //color.equals(bar); // проверка на равенство
-        ballsList.add("Васька");
-        ballsList.get(0);
-        //Handler.CheckInclude(x,y);
-       // System.out.println(isInclude);
+        Basket basket = new Basket();
+
+        Ball firstBall = new Ball("Синий",6);
+        Ball secondBall = new Ball("Зеленый",3);
+        Ball thirdBall = new Ball("Синий",8);
+        Ball fourthBall = new Ball("Оранжевый",5);
+
+        ArrayList<Ball> ballsList = new ArrayList<Ball>();
+        ballsList.add(firstBall);
+        ballsList.add(secondBall);
+        ballsList.add(thirdBall);
+        ballsList.add(fourthBall);
+
+        System.out.println("Вес всех мячей в корзине: " + basket.BallsWeight(ballsList));
+        System.out.println("Синих мячей в корзине: " + basket.NavyBallsColorCount(ballsList));
     }
 }
