@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by NotePad.by on 30.09.2016.
  */
 public class Basket {
-    public double NavyBallsColorCount(ArrayList<Ball> allBalls)
+    public double BallsWeight(ArrayList<Ball> allBalls)
     {
         double allBallsWeight = 0;
 
@@ -17,9 +17,9 @@ public class Basket {
         return allBallsWeight;
     }
 
-    public int BallsWeight(ArrayList<Ball> allBalls)
+    public long NavyBallsColorCount(ArrayList<Ball> allBalls)
     {
-        int navyBallsCount = 0;
+        long navyBallsCount = 0;
         for (Ball currentBall : allBalls)
         {
             if (currentBall.GetBallColor().compareTo("Синий") == 0)
