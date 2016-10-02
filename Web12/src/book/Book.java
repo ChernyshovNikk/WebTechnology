@@ -9,6 +9,8 @@ public class Book {
     private int price;
     private static int edition;
 
+    public Book(){}
+
     public Book(String title, String author, int price, int edition)  {
         this.title = title;
         this.author = author;
@@ -57,15 +59,17 @@ public class Book {
     public int hashCode() {
         int result = 0;
         result += this.GetBookPrice();
+
         if (this.GetBookAuthor() != null)
             result += this.GetBookAuthor().hashCode();
-        if(this.GetBookTitle() != null)
+
+        if (this.GetBookTitle() != null)
             result += this.GetBookTitle().hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        return "Title: '" + title + '\''+ ",  Author: '" + author + '\'' +  ",  Price = " + price;
+        return "(Book)" + "  Title: '" + title + '\''+ ",  Author: '" + author + '\'' +  ",  Price = " + price;
     }
 }

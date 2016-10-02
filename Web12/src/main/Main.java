@@ -1,6 +1,7 @@
 package main;
 
 import book.Book;
+import book.ProgrammerBook;
 
 import java.util.Arrays;
 
@@ -18,6 +19,19 @@ public class Main {
 
         for (Book temporaryBook : allBooks) {
             System.out.println(temporaryBook.toString());
+        }
+
+        System.out.println();
+
+        ProgrammerBook[] allProgrammerBooks = new ProgrammerBook[5];
+        allProgrammerBooks[0] = new ProgrammerBook("Java", 1);
+        allProgrammerBooks[1] = new ProgrammerBook("C#", 2);
+        allProgrammerBooks[2] = new ProgrammerBook("PHP", 3);
+        allProgrammerBooks[3] = new ProgrammerBook("JavaScript", 4);
+        allProgrammerBooks[4] = new ProgrammerBook("Delphi", 5);
+
+        for (ProgrammerBook temporaryProgrammerBook : allProgrammerBooks) {
+            System.out.println(temporaryProgrammerBook.toString());
         }
     }
 }
