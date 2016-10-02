@@ -3,19 +3,26 @@ package book;
 /**
  * Created by NotePad.by on 02.10.2016.
  */
-public class Book {
+public class Book implements Comparable{
     private String title;
     private String author;
     private int price;
     private static int edition;
 
+    private int isbn;
+
     public Book(){}
 
-    public Book(String title, String author, int price, int edition)  {
+    public Book(String title, String author, int price, int edition, int isbn)  {
         this.title = title;
         this.author = author;
         this.price = price;
         this.edition = edition;
+        this.isbn = isbn;
+    }
+
+    public int GetBookIsbn() {
+        return isbn;
     }
 
     public String GetBookTitle() {
@@ -77,5 +84,15 @@ public class Book {
     public Book clone() throws CloneNotSupportedException {
         Book copyObj = (Book)super.clone();
         return copyObj;
+    }
+
+    @Override
+    public int compareTo(Object obj) {
+        Book entry = (Book) obj;
+        int result = this.GetBookIsbn() - entry.isbn;
+        if (result != 0) {
+            return (int) result / Math.abs(result);
+        }
+        return 0;
     }
 }
