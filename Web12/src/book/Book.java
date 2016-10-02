@@ -72,4 +72,10 @@ public class Book {
     public String toString() {
         return "(Book)" + "  Title: '" + title + '\''+ ",  Author: '" + author + '\'' +  ",  Price = " + price;
     }
+
+    @Override
+    public Book clone() throws CloneNotSupportedException {
+        Book copyObj = (Book)super.clone();
+        return copyObj;
+    }
 }
