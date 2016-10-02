@@ -23,7 +23,7 @@ public class Tests_Book {
     }
 
     @Test
-    public void FirstElemnetSortIsbnTest() {
+    public void FirstElementSortIsbnTest() {
         GetTestData();
         long expectValue = 1;
         Book sortValue = testBooks.first();
@@ -31,7 +31,7 @@ public class Tests_Book {
     }
 
     @Test
-    public void LastElemnetSortIsbnTest() {
+    public void LastElementSortIsbnTest() {
         GetTestData();
         long expectValue = 5;
         Book sortValue = testBooks.last();

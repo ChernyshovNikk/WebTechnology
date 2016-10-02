@@ -1,9 +1,11 @@
 package book;
 
+import java.util.Comparator;
+
 /**
  * Created by NotePad.by on 02.10.2016.
  */
-public class Book implements Comparable{
+public class Book implements Comparator<Book>,Comparable{
     private String title;
     private String author;
     private int price;
@@ -94,5 +96,71 @@ public class Book implements Comparable{
             return (int) result / Math.abs(result);
         }
         return 0;
+    }
+
+    public int compare(Book firstBook, Book secondBook) {
+        String firstString = firstBook.GetBookTitle();
+        String secondString = secondBook.GetBookTitle();
+        return firstString.compareTo(secondString);
+    }
+
+    public static class SortBooksByTitle implements Comparator<Book>{
+        @Override
+        public int compare(Book firstBook, Book secondBook) {
+            String firstString = firstBook.GetBookTitle();
+            String secondString = secondBook.GetBookTitle();
+            return firstString.compareTo(secondString);
+        }
+    }
+
+    public static class SortBooksByTitleAndAuthor implements Comparator<Book> {
+        @Override
+        public int compare(Book firstBook, Book secondBook) {
+            String firstString = firstBook.GetBookTitle();
+            String secondString = secondBook.GetBookTitle();
+            if (firstString.compareTo(secondString) != 0)
+                return firstString.compareTo(secondString);
+
+            firstString = firstBook.GetBookAuthor();
+            secondString = secondBook.GetBookAuthor();
+            return firstString.compareTo(secondString);
+        }
+    }
+
+    public static class SortBooksByAuthorAndTitle implements Comparator<Book> {
+        @Override
+        public int compare(Book firstBook, Book secondBook) {
+            String firstString = firstBook.GetBookAuthor();
+            String secondString = secondBook.GetBookAuthor();
+            if (firstString.compareTo(secondString) != 0)
+                return firstString.compareTo(secondString);
+
+            firstString = firstBook.GetBookTitle();
+            secondString = secondBook.GetBookTitle();
+            return firstString.compareTo(secondString);
+        }
+    }
+
+    public static class SortBooksByAuthorAndTitleAndPrice implements Comparator<Book> {
+        @Override
+        public int compare(Book firstBook, Book secondBook) {
+            String firstString = firstBook.GetBookAuthor();
+            String secondString = secondBook.GetBookAuthor();
+            if (firstString.compareTo(secondString) != 0)
+                return firstString.compareTo(secondString);
+
+            firstString = firstBook.GetBookTitle();
+            secondString = secondBook.GetBookTitle();
+            if (firstString.compareTo(secondString) != 0)
+                return firstString.compareTo(secondString);
+
+            if(firstBook.GetBookPrice() > secondBook.GetBookPrice())
+                return 1;
+            else
+                if(firstBook.GetBookPrice() < secondBook.GetBookPrice())
+                    return -1;
+                else
+                    return 0;
+        }
     }
 }
